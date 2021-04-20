@@ -1,9 +1,11 @@
 package com.example.anim_snd
 
+import android.media.AudioManager
 import android.media.SoundPool
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -86,6 +88,15 @@ class MainActivity() : AppCompatActivity() {
                 }
             }
         }
+
+        soundPool = SoundPool(25, AudioManager.STREAM_MUSIC, 0)
+        soundId1 = soundPool!!.load(baseContext, R.raw.avto, 1)
+        soundId2 = soundPool!!.load(baseContext, R.raw.avto2, 1)
+        soundId3 = soundPool!!.load(baseContext, R.raw.avto, 1)
+        soundId4 = soundPool!!.load(baseContext, R.raw.baraban_95, 1)
+        soundId5 = soundPool!!.load(baseContext, R.raw.baraban_sg, 1)
+        soundId6 = soundPool!!.load(baseContext, R.raw.yakub, 1)
+
     }
 
     fun playSound(sound: Int) {
@@ -102,7 +113,8 @@ class MainActivity() : AppCompatActivity() {
             5 -> soundId = soundId5
             6 -> soundId = soundId6
         }
-
+        soundPool?.play(soundId, 1F, 1F, 0, 0, 1F)
+        Toast.makeText(this, soundId!!.toString(), Toast.LENGTH_SHORT).show()
 
     }
 }

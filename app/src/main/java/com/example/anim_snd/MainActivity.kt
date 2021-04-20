@@ -9,7 +9,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class MainActivity() : AppCompatActivity() {
 
     private var soundPool: SoundPool? = null
     private var soundId1: Int = 0
@@ -27,9 +27,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.b1).setOnClickListener {
             playSound(1)
             MainScope().launch {
-                for (i in 0..179)
-                {
-                    it.rotationX =  it.rotationX +1
+                for (i in 0..179) {
+                    it.rotationX = it.rotationX + 1
                     delay(1)
                 }
             }
@@ -38,9 +37,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.b2).setOnClickListener {
             playSound(2)
             MainScope().launch {
-                for (i in 0..179)
-                {
-                    it.rotationX =  it.rotationX +1
+                for (i in 0..179) {
+                    it.rotationX = it.rotationX + 1
                     delay(1)
                 }
             }
@@ -49,6 +47,16 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.b3).setOnClickListener {
             playSound(3)
             MainScope().launch {
+                for (i in 0..179) {
+                    it.rotationX = it.rotationX + 1
+                    delay(1)
+                }
+            }
+        }
+
+        findViewById<Button>(R.id.b4).setOnClickListener {
+            playSound(4)
+            MainScope().launch {
                 for (i in 0..179)
                 {
                     it.rotationX =  it.rotationX +1
@@ -56,5 +64,45 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        findViewById<Button>(R.id.b5).setOnClickListener {
+            playSound(5)
+            MainScope().launch {
+                for (i in 0..179)
+                {
+                    it.rotationX =  it.rotationX +1
+                    delay(1)
+                }
+            }
+        }
+
+        findViewById<Button>(R.id.b6).setOnClickListener {
+            playSound(6)
+            MainScope().launch {
+                for (i in 0..179)
+                {
+                    it.rotationX =  it.rotationX +1
+                    delay(1)
+                }
+            }
+        }
+    }
+
+    fun playSound(sound: Int) {
+
+        var soundId = 0
+        if (sound != 0) {
+            Random_One_Six = sound
+        }
+        when (Random_One_Six) {
+            1 -> soundId = soundId1
+            2 -> soundId = soundId2
+            3 -> soundId = soundId3
+            4 -> soundId = soundId4
+            5 -> soundId = soundId5
+            6 -> soundId = soundId6
+        }
+
+
     }
 }
